@@ -1,4 +1,4 @@
-package net.tonimatasdev.minecraftthings.util;
+package net.tonimatasdev.mechanics.util;
 
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;

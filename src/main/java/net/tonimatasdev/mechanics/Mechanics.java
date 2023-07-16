@@ -1,11 +1,11 @@
-package net.tonimatasdev.minecraftthings;
+package net.tonimatasdev.mechanics;
 
-import net.tonimatasdev.minecraftthings.listeners.BlockListener;
-import net.tonimatasdev.minecraftthings.listeners.EntityListener;
+import net.tonimatasdev.mechanics.listeners.BlockListener;
+import net.tonimatasdev.mechanics.listeners.EntityListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class MinecraftThings extends JavaPlugin {
-    private static MinecraftThings instance;
+public final class Mechanics extends JavaPlugin {
+    private static Mechanics instance;
 
     @Override
     public void onEnable() {
@@ -20,7 +20,7 @@ public final class MinecraftThings extends JavaPlugin {
         getServer().getConsoleSender().sendMessage("Disabling ");
     }
 
-    public static MinecraftThings getInstance() {
+    public static Mechanics getInstance() {
         return instance;
     }
 }

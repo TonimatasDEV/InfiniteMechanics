@@ -1,4 +1,4 @@
-package net.tonimatasdev.minecraftthings.listeners;
+package net.tonimatasdev.mechanics.listeners;
 
 import org.bukkit.event.Listener;
 

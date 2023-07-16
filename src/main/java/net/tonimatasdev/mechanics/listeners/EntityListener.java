@@ -1,7 +1,7 @@
-package net.tonimatasdev.minecraftthings.listeners;
+package net.tonimatasdev.mechanics.listeners;
 
-import net.tonimatasdev.minecraftthings.util.BlockUtil;
-import net.tonimatasdev.minecraftthings.util.WorldUtil;
+import net.tonimatasdev.mechanics.util.BlockUtil;
+import net.tonimatasdev.mechanics.util.WorldUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
