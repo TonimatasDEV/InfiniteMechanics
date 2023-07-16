@@ -24,7 +24,7 @@ processResources {
 }
 
 jar {
-    archiveFileName = "$rootDir/artifacts/PerWorldPlugins-${project.version}.jar"
+    archiveFileName = "$rootDir/artifacts/MinecraftThings-${project.version}.jar"
 }
 
 tasks.withType(JavaCompile).configureEach {

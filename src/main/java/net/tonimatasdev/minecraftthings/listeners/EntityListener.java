@@ -1,0 +1,34 @@
+package net.tonimatasdev.minecraftthings.listeners;
+
+import net.tonimatasdev.minecraftthings.util.BlockUtil;
+import net.tonimatasdev.minecraftthings.util.WorldUtil;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Snowball;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.ProjectileHitEvent;
+
+public class EntityListener implements Listener {
+    @EventHandler
+    private void onProjectileHit(ProjectileHitEvent event) {
+        if (event.getHitBlockFace() == BlockFace.UP) {
+            if (event.getEntity() instanceof Snowball snowball) {
+                if (event.getHitBlock() != null) {
+                    Block hitBlock = event.getHitBlock();
+                    if (hitBlock.getType() == Material.SNOW) {
+                        if (BlockUtil.getSnowLayer(hitBlock) > 1) {
+                            WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), hitBlock.getLocation());
+                            return;
+                        }
+                    }
+
+                    Location snowLocation = new Location(snowball.getWorld(), hitBlock.getX(), hitBlock.getY() + 1, hitBlock.getZ());
+                    WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), snowLocation);
+                }
+            }
+        }
+    }
+}
