@@ -19,7 +19,11 @@ public class EntityListener implements Listener {
                 if (event.getHitBlock() != null) {
                     Block hitBlock = event.getHitBlock();
                     if (hitBlock.getType() == Material.SNOW) {
-                        if (BlockUtil.getSnowLayer(hitBlock) > 1) {
+                        int snowLayer = BlockUtil.getSnowLayer(hitBlock);
+
+                        if (snowLayer == 8) {
+                            hitBlock.setType(Material.SNOW_BLOCK);
+                        } else if (snowLayer > 1) {
                             WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), hitBlock.getLocation());
                             return;
                         }
