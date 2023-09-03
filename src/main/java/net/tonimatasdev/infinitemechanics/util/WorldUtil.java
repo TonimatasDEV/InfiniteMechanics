@@ -1,4 +1,4 @@
-package net.tonimatasdev.mechanics.util;
+package net.tonimatasdev.infinitemechanics.util;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

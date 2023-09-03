@@ -1,12 +1,12 @@
-package net.tonimatasdev.mechanics;
+package net.tonimatasdev.infinitemechanics;
 
-import net.tonimatasdev.mechanics.listeners.BlockListener;
-import net.tonimatasdev.mechanics.listeners.EntityListener;
+import net.tonimatasdev.infinitemechanics.listeners.BlockListener;
+import net.tonimatasdev.infinitemechanics.listeners.EntityListener;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class InfiniteEvents extends JavaPlugin {
-    private static InfiniteEvents instance;
+public final class InfiniteMechanics extends JavaPlugin {
+    private static InfiniteMechanics instance;
 
     @Override
     public void onEnable() {
@@ -25,7 +25,7 @@ public final class InfiniteEvents extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.RED + "InfiniteEvents has been disabled.");
     }
 
-    public static InfiniteEvents getInstance() {
+    public static InfiniteMechanics getInstance() {
         return instance;
     }
 }

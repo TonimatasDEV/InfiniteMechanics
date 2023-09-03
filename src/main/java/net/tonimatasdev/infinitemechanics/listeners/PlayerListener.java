@@ -1,4 +1,4 @@
-package net.tonimatasdev.mechanics.listeners;
+package net.tonimatasdev.infinitemechanics.listeners;
 
 import org.bukkit.event.Listener;
 

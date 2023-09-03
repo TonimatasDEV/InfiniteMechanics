@@ -1,6 +1,6 @@
-package net.tonimatasdev.mechanics.listeners;
+package net.tonimatasdev.infinitemechanics.listeners;
 
-import net.tonimatasdev.mechanics.util.BlockUtil;
+import net.tonimatasdev.infinitemechanics.util.BlockUtil;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;

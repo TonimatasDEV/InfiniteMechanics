@@ -8,7 +8,7 @@ group = "net.tonimatasdev"
 version = pluginVersion
 
 base {
-    archivesName.set("InfiniteEvents")
+    archivesName.set("InfiniteMechanics")
 }
 
 repositories {

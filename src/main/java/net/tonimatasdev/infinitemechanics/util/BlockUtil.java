@@ -1,4 +1,4 @@
-package net.tonimatasdev.mechanics.util;
+package net.tonimatasdev.infinitemechanics.util;
 
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;

@@ -1,4 +1,4 @@
-name: InfiniteEvents
+name: InfiniteMechanics
 version: '${version}'
-main: net.tonimatasdev.mechanics.Mechanics
+main: net.tonimatasdev.infinitemechanics.InfiniteMechanics
 api-version: "1.20"

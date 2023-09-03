@@ -1,1 +1,1 @@
-rootProject.name = "InfiniteEvents"
+rootProject.name = "InfiniteMechanics"
