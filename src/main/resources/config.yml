@@ -1,2 +1,5 @@
+disabledWorlds:
+  - Example
+
 1: true
 2: true

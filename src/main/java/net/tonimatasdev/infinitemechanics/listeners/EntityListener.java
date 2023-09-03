@@ -1,5 +1,6 @@
 package net.tonimatasdev.infinitemechanics.listeners;
 
+import net.tonimatasdev.infinitemechanics.InfiniteMechanics;
 import net.tonimatasdev.infinitemechanics.util.BlockUtil;
 import net.tonimatasdev.infinitemechanics.util.WorldUtil;
 import org.bukkit.Location;
@@ -13,26 +14,28 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 
 public class EntityListener implements Listener {
     @EventHandler
-    private void onProjectileHit(ProjectileHitEvent event) {
-        if (event.getHitBlockFace() == BlockFace.UP) {
-            if (event.getEntity() instanceof Snowball snowball) {
-                if (event.getHitBlock() != null) {
-                    Block hitBlock = event.getHitBlock();
-                    if (hitBlock.getType() == Material.SNOW) {
-                        int snowLayer = BlockUtil.getSnowLayer(hitBlock);
+    private void mechanic1(ProjectileHitEvent event) {
+        if (InfiniteMechanics.disabledWorlds.contains(event.getEntity().getWorld())) return;
+        if (!InfiniteMechanics.getInstance().getConfig().getBoolean("1")) return;
+        if (event.getHitBlockFace() != BlockFace.UP) return;
 
-                        if (snowLayer == 8) {
-                            hitBlock.setType(Material.SNOW_BLOCK);
-                        } else if (snowLayer > 1) {
-                            WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), hitBlock.getLocation());
-                            return;
-                        }
-                    }
+        if (event.getEntity() instanceof Snowball snowball) {
+            if (event.getHitBlock() == null) return;
 
-                    Location snowLocation = new Location(snowball.getWorld(), hitBlock.getX(), hitBlock.getY() + 1, hitBlock.getZ());
-                    WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), snowLocation);
-                }
+            Block hitBlock = event.getHitBlock();
+            if (hitBlock.getType() != Material.SNOW) return;
+
+            int snowLayer = BlockUtil.getSnowLayer(hitBlock);
+
+            if (snowLayer == 8) {
+                hitBlock.setType(Material.SNOW_BLOCK);
+            } else if (snowLayer > 1) {
+                WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), hitBlock.getLocation());
+                return;
             }
+
+            Location snowLocation = new Location(snowball.getWorld(), hitBlock.getX(), hitBlock.getY() + 1, hitBlock.getZ());
+            WorldUtil.setSnowOrAddSnowLayer(hitBlock.getWorld(), snowLocation);
         }
     }
 }

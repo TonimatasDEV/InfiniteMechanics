@@ -1,5 +1,6 @@
 package net.tonimatasdev.infinitemechanics.listeners;
 
+import net.tonimatasdev.infinitemechanics.InfiniteMechanics;
 import net.tonimatasdev.infinitemechanics.util.BlockUtil;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -9,13 +10,16 @@ import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockListener implements Listener {
     @EventHandler
-    private void onPlaceBlock(BlockPlaceEvent event) {
-        if (event.getBlockPlaced().getType() == Material.SNOW) {
-            Block placedBlock = event.getBlock();
+    private void mechanic2(BlockPlaceEvent event) {
+        if (InfiniteMechanics.disabledWorlds.contains(event.getBlock().getWorld())) return;
+        if (!InfiniteMechanics.getInstance().getConfig().getBoolean("2")) return;
+        if (event.getBlockPlaced().getType() != Material.SNOW) return;
 
-            if (BlockUtil.getSnowLayer(placedBlock) == 8) {
-                event.getBlock().setType(Material.SNOW_BLOCK);
-            }
+        Block placedBlock = event.getBlock();
+
+        if (BlockUtil.getSnowLayer(placedBlock) == 8) {
+            event.getBlock().setType(Material.SNOW_BLOCK);
         }
+
     }
 }
